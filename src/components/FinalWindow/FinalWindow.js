@@ -1,7 +1,7 @@
 import React from 'react'
 import './FinalWindow.css'
 
-export default function FinalWindow({isFinished, isWon}) {
+export default function FinalWindow({isFinished, isWon, onRestart}) {
 
   return (
     <div className={`final-window${isFinished ? '' : 'final-window_hidden'}`}>
@@ -13,7 +13,7 @@ export default function FinalWindow({isFinished, isWon}) {
       </p>
       <button 
         className={`final-window__restart-button${isFinished ? '' : ' final-window__restart-button_hidden'}`}
-        
+        onClick={onRestart}
       >
         Снова!
       </button>
