@@ -1,0 +1,62 @@
+.cell {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 1.2rem;
+}
+
+.cell:hover {
+  background-image: url(../../images/cross-50.svg);
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cell-x {
+  background-image: url(../../images/cross.svg);
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cell-x:hover {
+  background-image: url(../../images/cross.svg);
+  cursor: auto;
+}
+
+.cell-zero {
+  background-image: url(../../images/zero.svg);
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cell-zero:hover {
+  background-image: url(../../images/zero.svg);
+  cursor: auto;
+}
+
+/* .FstRowFstCol {}
+
+.SecRowFstCol {}
+
+.ThrdRowFstCol {}
+
+.FstRowSecCol {}
+
+.SecRowSecCol {}
+
+.ThrdRowSecCol {}
+
+.FstRowThrdCol {}
+
+.SecRowThrdCol {}
+
+.ThrdRowThrdCol {} */
+
+.noCell {
+  display: none;
+}
