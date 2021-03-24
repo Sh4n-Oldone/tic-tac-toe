@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Cell from '../Cell/Cell'
 import FinalWindow from '../FinalWindow/FinalWindow'
 import './App.css'

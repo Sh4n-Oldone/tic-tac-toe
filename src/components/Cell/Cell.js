@@ -1,22 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './Cell.css'
 
 export default function Cell({position, isPlayerCross, status, handleClick}) {
-  function cellClassName(cellName) {
-    if (cellName === 'FstRowFstCol' || 
-        cellName === 'SecRowFstCol' ||
-        cellName === 'ThrdRowFstCol' ||
-        cellName === 'FstRowSecCol' ||
-        cellName === 'SecRowSecCol' ||
-        cellName === 'ThrdRowSecCol' ||
-        cellName === 'FstRowThrdCol' ||
-        cellName === 'SecRowThrdCol' ||
-        cellName === 'ThrdRowThrdCol'
-    ) {
-      return cellName
-    }
-    return 'noCell'
-  }
 
   const [isEnabled, setIsEnabled] = useState(true)
 
@@ -38,7 +23,7 @@ export default function Cell({position, isPlayerCross, status, handleClick}) {
         }${isEnabled 
           ? '' 
           : ' cell_disabled'}`}
-      onClick={() => {handleCellClick(cellClassName(position), isPlayerCross ? 'cross' : 'zero')}}
+      onClick={() => {handleCellClick(position, isPlayerCross ? 'cross' : 'zero')}}
     />
   )
 }
