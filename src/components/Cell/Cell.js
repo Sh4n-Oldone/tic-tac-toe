@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
 import './Cell.css'
 
-export default function Cell({position, isPlayerCross, status, handleClick}) {
+export default function Cell({position, isPlayerCross, handleClick}) {
 
   const [isEnabled, setIsEnabled] = useState(true)
-
+  const [cellStatus, setCellStatus] = useState('')
   const handleCellClick = (pos, figure) => {
     setIsEnabled(false)
     handleClick(pos, figure)
+    if(isPlayerCross) {
+      setCellStatus('cross')
+    } else {
+      setCellStatus('zero')
+    }
   }
 
   return (
@@ -15,9 +20,9 @@ export default function Cell({position, isPlayerCross, status, handleClick}) {
       className={`cell${isPlayerCross 
         ? ' x_hover' 
         : ' zero_hover'
-      }${status === 'cross' 
+      }${cellStatus === 'cross' 
           ? ' cell-x' 
-          : status === 'zero' 
+          : cellStatus === 'zero' 
             ? ' cell-zero'
             : ''
         }${isEnabled 
