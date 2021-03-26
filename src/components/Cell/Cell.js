@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Cell.css'
 
-export default function Cell({position, isPlayerCross, handleClick}) {
+export default function Cell({position, isPlayerCross, handleClick, newGame}) {
 
   const [isEnabled, setIsEnabled] = useState(true)
   const [cellStatus, setCellStatus] = useState('')
@@ -15,18 +15,25 @@ export default function Cell({position, isPlayerCross, handleClick}) {
     }
   }
 
+  useEffect(() => {
+    if (newGame) {
+      setIsEnabled(true)
+      setCellStatus('')
+    }
+  }, [newGame])
+
   return (
     <div 
-      className={`cell${isPlayerCross 
+      className={`cell${isPlayerCross && isEnabled
         ? ' x_hover' 
-        : ' zero_hover'
+        : isEnabled
+          ? ' zero_hover'
+          : ''
       }${cellStatus === 'cross' 
           ? ' cell-x' 
           : cellStatus === 'zero' 
-            ? ' cell-zero'
-            : cellStatus === ''
-              ? ' cell-none'
-              : ''
+            ? ' cell-zero' 
+            : ''
         }${isEnabled 
           ? '' 
           : ' cell_disabled'}`}

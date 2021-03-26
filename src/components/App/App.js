@@ -7,6 +7,7 @@ import './App.css'
 
 export default function App() {
   const [isPlayerCross, setIsPlayerCross] = useState(true)
+  const [newGame, setNewGame] = useState(false)
 
   const cells = [ 'a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3']
   const defaultCells = { 
@@ -25,7 +26,7 @@ export default function App() {
       ...prevStatus,
       [cellPosition]: cellStatus
     }))
-    console.log(cellsStatus)
+    setNewGame(false)
   }
 
   const winningStatus = () => {
@@ -54,9 +55,10 @@ export default function App() {
         !isThereEmptyValue(cellsStatus) && 
         !arrayOfWinCombinations.includes('crosscrosscross') && 
         !arrayOfWinCombinations.includes('zerozerozero')
-        ) {
-      setWhoWon('draw')
-      setIsFinished(true)
+        ) 
+      {
+        setWhoWon('draw')
+        setIsFinished(true)
     }
   }
 
@@ -65,7 +67,7 @@ export default function App() {
     setIsFinished(false)
     setCellsStatus({ ...defaultCells })
     setIsPlayerCross(true)
-    console.log(cellsStatus)
+    setNewGame(true)
   }
 
   useEffect(() => {
@@ -82,6 +84,7 @@ export default function App() {
               position={cell} 
               handleClick={handleCellClick} 
               isPlayerCross={isPlayerCross}
+              newGame={newGame}
             />
           )}
 
