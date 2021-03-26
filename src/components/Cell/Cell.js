@@ -24,7 +24,9 @@ export default function Cell({position, isPlayerCross, handleClick}) {
           ? ' cell-x' 
           : cellStatus === 'zero' 
             ? ' cell-zero'
-            : ''
+            : cellStatus === ''
+              ? ' cell-none'
+              : ''
         }${isEnabled 
           ? '' 
           : ' cell_disabled'}`}

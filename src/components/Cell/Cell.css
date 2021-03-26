@@ -48,6 +48,10 @@
   cursor: auto;
 }
 
+.cell-none {
+  background-image: none;
+}
+
 .noCell {
   display: none;
 }
