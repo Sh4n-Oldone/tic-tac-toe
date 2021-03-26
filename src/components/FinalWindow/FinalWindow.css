@@ -16,6 +16,7 @@
 }
 
 .final-window__text {
+  text-align: center;
   font-size: 40px;
   font-weight: 800;
   color: #fff;
