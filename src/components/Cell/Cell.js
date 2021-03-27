@@ -5,15 +5,16 @@ export default function Cell({position, isPlayerCross, handleClick, newGame}) {
 
   const [isEnabled, setIsEnabled] = useState(true)
   const [cellStatus, setCellStatus] = useState('')
-  const handleCellClick = (pos, figure) => {
+  const handleCellClick = () => {
     setIsEnabled(false)
-    handleClick(pos, figure)
+    handleClick(position, isPlayerCross ? 'cross' : 'zero')
     if(isPlayerCross) {
       setCellStatus('cross')
     } else {
       setCellStatus('zero')
     }
   }
+
 
   useEffect(() => {
     if (newGame) {
@@ -37,7 +38,7 @@ export default function Cell({position, isPlayerCross, handleClick, newGame}) {
         }${isEnabled 
           ? '' 
           : ' cell_disabled'}`}
-      onClick={() => {handleCellClick(position, isPlayerCross ? 'cross' : 'zero')}}
+      onClick={handleCellClick}
     />
   )
 }
