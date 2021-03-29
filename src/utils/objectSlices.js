@@ -7,7 +7,7 @@ export const getRow = (obj, firstPosition, secondPosition) =>
 export const getColumn = (obj, num) => {
   let newArr = []
 
-  Object.keys(obj).map(item => {
+  Object.keys(obj).forEach(item => {
     if (item.slice(item.length - 1) === num.toString()) {
       newArr.push(item)
     }
@@ -22,8 +22,8 @@ export const getColumn = (obj, num) => {
 export const getMoreItems = (obj, arr) => {
   let newArr = []
 
-  arr.map(item => {
-    Object.keys(obj).map(k => {
+  arr.forEach(item => {
+    Object.keys(obj).forEach(k => {
       if (k === item) { newArr.push(k) }
     })
   })

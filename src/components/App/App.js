@@ -10,12 +10,8 @@ export default function App() {
   const [newGame, setNewGame] = useState(false)
 
   const cells = [ 'a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3']
-  const defaultCells = { 
-    a1: '', a2: '', a3: '', 
-    b1: '', b2: '', b3: '', 
-    c1: '', c2: '', c3: '' 
-  }
-  const [cellsStatus, setCellsStatus] = useState(defaultCells)
+  const defaultCellsState = cells.reduce((obj, item) => (obj[item]='', obj),{})
+  const [cellsStatus, setCellsStatus] = useState(defaultCellsState)
 
   const [isFinished, setIsFinished] = useState(false)
   const [whoWon, setWhoWon] = useState('')
@@ -65,7 +61,7 @@ export default function App() {
   const handleRestart = () => {
     setWhoWon('')
     setIsFinished(false)
-    setCellsStatus({ ...defaultCells })
+    setCellsStatus({ ...defaultCellsState })
     setIsPlayerCross(true)
     setNewGame(true)
   }
